@@ -20,7 +20,7 @@ set(CMAKE_CXX_EXTENSIONS false)
 # Flags for Debug and Release targets
 set(CMAKE_CXX_FLAGS_DEBUG "-Wall -Wextra -Wpedantic -Wshadow -Wconversion \
                            -Wshadow -Wswitch-enum -Weffc++ -ggdb3")
-set(CMAKE_CXX_FLAGS_RELEASE "-O3 -mtune=native")
+set(CMAKE_CXX_FLAGS_RELEASE "-O3 -march=native")
 
 set(FIND_LIBRARY_USE_LIB64_PATHS true)
 
