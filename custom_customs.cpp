@@ -10,13 +10,22 @@
 
 namespace fs = std::filesystem;
 using Person = std::string;
-using Group = std::multiset<Person>;
+
+class Cmp {
+public:
+    bool operator()(Person const& p1, Person const& p2) const
+    {
+        return p1.length() < p2.length();
+    }
+};
+
+using Group = std::multiset<Person, Cmp>;
 
 template<typename Streamable>
 requires std::derived_from<Streamable, std::istream>
 std::list<Group> groups(Streamable& is)
 {
-    std::list<Group> gs;
+    std::list<Group> groups;
     for (Group grp; is.good(); grp.clear()) {
         for (Person person; is.good(); ) {
             std::getline(is, person);
@@ -25,24 +34,25 @@ std::list<Group> groups(Streamable& is)
             }
             grp.insert(person);
         }
-        gs.push_back(grp);
+        groups.push_back(grp);
     }
 
-    return gs;
+    return groups;
 }
 
 int main(int argc, char* argv[])
 {
-    std::list<Group> grps;
-    if (argc > 1) {
-        if (fs::path const path {argv[1]}; fs::exists(path)) {
-            std::ifstream fileStream {path};
-            grps = groups(fileStream);
-        }
-    }
-    else {
-        grps = groups(std::cin);
-    }
+    auto const grps {
+        [argc, argv]() {
+            if (argc > 1) {
+                if (fs::path const path{argv[1]}; fs::exists(path)) {
+                    std::ifstream fileStream{path};
+                    return groups(fileStream);
+                }
+            }
+            return groups(std::cin);
+        }()
+    };
 
     unsigned long answer1 {0};
     for (auto const& group : grps) {
