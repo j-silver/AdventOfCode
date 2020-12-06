@@ -49,3 +49,5 @@ add_executable(PassportProcessing passport_processing.cpp)
 
 add_executable(BinaryBoarding binary_boarding.cpp)
 target_link_libraries(BinaryBoarding PRIVATE line)
+
+add_executable(CustomCustoms custom_customs.cpp)
