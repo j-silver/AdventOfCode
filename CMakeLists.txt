@@ -51,3 +51,6 @@ add_executable(BinaryBoarding binary_boarding.cpp)
 target_link_libraries(BinaryBoarding PRIVATE line)
 
 add_executable(CustomCustoms custom_customs.cpp)
+
+add_executable(HandyHaversacks handy_haversacks.cpp)
+target_link_libraries(HandyHaversacks PRIVATE line)
