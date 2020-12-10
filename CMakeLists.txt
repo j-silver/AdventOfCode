@@ -54,3 +54,5 @@ add_executable(CustomCustoms custom_customs.cpp)
 
 add_executable(HandyHaversacks handy_haversacks.cpp)
 target_link_libraries(HandyHaversacks PRIVATE line)
+
+add_executable(HandheldHalting handheld_halting.cpp)
