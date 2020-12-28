@@ -143,7 +143,7 @@ std::vector<Passport> read_file(std::ifstream& fileStream)
 
 int main()
 {
-    std::ifstream file {std::filesystem::path {"../files/input4.txt"}};
+    std::ifstream file {std::filesystem::path {"../../files/input4.txt"}};
     auto const passports {read_file(file)};
     auto const numberOfValidPassports {
         std::count_if(passports.cbegin(), passports.cend(), [](auto const& p){ return p.is_valid(); })

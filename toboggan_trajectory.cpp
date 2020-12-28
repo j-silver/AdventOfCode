@@ -39,7 +39,7 @@ unsigned long number_of_trees(slope const& s, field const& f)
 
 int main()
 {
-    std::ifstream fileStream {std::filesystem::path {"../files/input3.txt"}};
+    std::ifstream fileStream {std::filesystem::path {"../../files/input3.txt"}};
     std::vector<std::vector<bool>> pattern;
     std::vector<bool> row;
     for (std::string line : std::ranges::istream_view<Line>(fileStream)) {

@@ -7,6 +7,7 @@
 #include <fstream>
 #include <iostream>
 #include <numeric>
+#include <cassert>
 
 namespace fs = std::filesystem;
 using Person = std::string;
@@ -78,5 +79,7 @@ int main(int argc, char* argv[])
                         });
     }
 
+    assert(answer1 == 6310);
+    assert(answer2 == 3193);
     std::cout << answer1 << '\n' << answer2 << '\n';
 }

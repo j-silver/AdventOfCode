@@ -29,7 +29,7 @@ int main()
     int const exampleID {id(example)};
     assert(exampleID == 357);
 
-    std::ifstream fileStream {std::filesystem::path {"../files/input5.txt"}};
+    std::ifstream fileStream {std::filesystem::path {"../../files/input5.txt"}};
     auto idsView {
               std::ranges::istream_view<Line>(fileStream)
             | std::ranges::views::transform(id)

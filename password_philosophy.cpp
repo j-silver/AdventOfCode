@@ -54,7 +54,7 @@ bool check_password_again(std::string const& password)
 
 int main()
 {
-    std::ifstream fileStream {std::filesystem::path {"../files/input2.txt"}};
+    std::ifstream fileStream {std::filesystem::path {"../../files/input2.txt"}};
     int count1 {0};
     int count2 {0};
     auto lines {std::ranges::istream_view<Line>(fileStream)};

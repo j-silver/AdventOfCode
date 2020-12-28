@@ -10,7 +10,7 @@ constexpr int year {2020};
 
 int main()
 {
-    std::ifstream fileStream {std::filesystem::path {"../files/input1.txt"}};
+    std::ifstream fileStream {std::filesystem::path {"../../files/input1.txt"}};
     std::istream_iterator<int> it {fileStream}, endIt {};
     std::list<int> entries;
     std::copy_if(it, endIt, std::back_inserter(entries), [](auto const& input){ return input < year; });
